@@ -6,7 +6,6 @@ let package = Package(
     name: "JavaScriptKit",
     products: [
         .library(name: "JavaScriptKit", targets: ["JavaScriptKit"]),
-        .library(name: "JavaScriptBigIntSupport", targets: ["JavaScriptBigIntSupport"]),
     ],
     targets: [
         .target(
@@ -15,10 +14,5 @@ let package = Package(
             resources: [.copy("Runtime")]
         ),
         .target(name: "_CJavaScriptKit"),
-        .target(
-            name: "JavaScriptBigIntSupport",
-            dependencies: ["_CJavaScriptBigIntSupport", "JavaScriptKit"]
-        ),
-        .target(name: "_CJavaScriptBigIntSupport", dependencies: ["_CJavaScriptKit"]),
     ]
 )
