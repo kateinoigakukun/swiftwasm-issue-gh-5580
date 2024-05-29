@@ -1,4 +1,3 @@
 module _CJavaScriptKit {
-    header "_CJavaScriptKit.h"
     export *
 }
