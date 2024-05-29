@@ -1,4 +1,5 @@
 TOOLCHAIN_PATH="$HOME/Library/Developer/Toolchains/swift-wasm-6.0-SNAPSHOT-2024-04-19-a.xctoolchain"
+rm -rf .build
 cp Package.step1.swift Package.swift
 env DYLD_LIBRARY_PATH="$TOOLCHAIN_PATH/usr/lib/swift/macosx" "$TOOLCHAIN_PATH/usr/bin/swift" build --triple wasm32-unknown-wasi --static-swift-stdlib
 if [ $? -ne 0 ]; then

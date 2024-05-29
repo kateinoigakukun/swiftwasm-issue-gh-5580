@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "Example",
     dependencies: [
-        .package(url: "https://github.com/swiftwasm/JavaScriptKit.git", from: "0.19.0"),
+        .package(path: "./JavaScriptKit"),
     ],
     targets: [
         .executableTarget(name: "Example", dependencies: [.product(name: "JavaScriptKit", package: "JavaScriptKit")]),

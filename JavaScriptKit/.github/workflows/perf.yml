@@ -1,0 +1,20 @@
+name: Performance
+
+on: [pull_request]
+
+jobs:
+  perf:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: swiftwasm/setup-swiftwasm@v1
+        with:
+          swift-version: wasm-5.9.1-RELEASE
+      - name: Run Benchmark
+        run: |
+          make bootstrap
+          make perf-tester
+          node ci/perf-tester
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
